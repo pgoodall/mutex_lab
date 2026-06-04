@@ -2,7 +2,7 @@ use std::thread;
 use std::sync::{Arc, Mutex};
 
 fn main() {
-    // Start: My working code
+    // Start: Working code with a single thread
     // let mut data = vec![1, 2, 3];
 
     // let handle = thread::spawn(move || {
@@ -17,8 +17,9 @@ fn main() {
     //     Ok(d) => println!("Output: {:?}", d),
     //     Err(e) => eprint!("Error: {:?}", e),
     // };
-    // End: My working code
+    // End: Working code with a single thread
     
+    // Using multiple threads
     let data = Arc::new(Mutex::new(vec![1, 2, 3]));
     let mut handles = vec![];
 

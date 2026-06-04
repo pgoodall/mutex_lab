@@ -1,0 +1,35 @@
+{
+    "name": "rust-devcontainer",
+    "image": "rust-development:latest",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.shell.linux": "/usr/bin/zsh"
+            },
+            "extensions": [
+                "rust-lang.rust-analyzer",
+                "ms-vscode.cpptools",
+                "vadimcn.vscode-lldb",
+                "ms-vscode.cmake-tools",
+                "twxs.cmake",
+                "fill-labs.dependi",
+                "tamasfe.even-better-toml",
+                "GitLab.gitlab-workflow"
+            ]
+        }
+    },
+    // "workspaceFolder": "/workspace",
+    // "workspaceMount": "source=/var/local/development,target=/workspace,type=bind,consistency=cached",
+    // Handle CARGO_HOME=/usr/local/cargo creating a volume for the cargo data to persist between runs
+    "mounts": [
+        {
+            "source": "cargo-cache-rust-devcontainer",
+            "target": "/usr/local/cargo:U",
+            "type": "volume"
+        }
+    ],
+    "runArgs": [
+        "--restart=always",
+        "--name=rust-devcontainer"
+    ]
+}
